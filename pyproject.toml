@@ -1,5 +1,5 @@
 [project]
-name = "UnofficialRedditAPI"
+name = "unofficial-reddit-api"
 version = "0.1.0"
 description = "An unofficial REST API for Reddit that mimics the official Reddit API by scraping data from Reddit."
 readme = "README.md"
@@ -9,7 +9,11 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi"
+    "fastapi",
+    "uvicorn",
+    "playwright",
+    "python-dotenv",
+    "pydantic"
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -22,6 +26,16 @@ classifiers = [
     "Framework :: FastAPI"
 ]
 
+[project.urls]
+"Homepage" = "https://codeberg.org/AnonCoder1337/UnofficialRedditAPI"
+"Bug Tracker" = "https://codeberg.org/AnonCoder1337/UnofficialRedditAPI/issues"
+
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[project.scripts]
+unofficial-reddit-api = "src.main:main"
