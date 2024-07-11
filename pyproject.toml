@@ -10,7 +10,7 @@ authors = [
 requires-python = ">=3.11"
 dependencies = [
     "fastapi",
-    "uvicorn",
+    "hypercorn",
     "playwright",
     "python-dotenv",
     "pydantic"
@@ -35,7 +35,10 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["src"]
+packages = ["src_backend", "src_frontend"]
 
 [project.scripts]
-unofficial-reddit-api = "src.main:main"
+unofficial-reddit-api = "src_frontend.main:main"
+
+[project.entry-points.unofficial_reddit_api]
+backend = "src_backend.main:main"
